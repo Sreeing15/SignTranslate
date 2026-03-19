@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignBridge - Real-Time Sign Language Translator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-hands-asl-interpreting"></i>
+                <h1>SignBridge</h1>
+            </div>
+            <div class="status-indicator">
+                <div class="dot" id="connection-dot"></div>
+                <span id="connection-text">Disconnected</span>
+            </div>
+        </header>
+
+        <main class="content-wrapper">
+            <!-- Left Side: Webcam Feed -->
+            <section class="video-section">
+                <div class="video-container">
+                    <video id="webcam" autoplay playsinline muted></video>
+                    <canvas id="canvas" style="display: block; width: 100%; height: 100%;"></canvas>
+                    <div class="overlay-text" id="video-overlay">Click 'Start Camera' to begin</div>
+                </div>
+            </section>
+
+            <!-- Right Side: Text Output -->
+            <section class="output-section">
+                <div class="text-panel">
+                    <h3>Translation Output</h3>
+                    <div class="translated-text-container" id="translated-text">
+                        <!-- Translated text will appear here -->
+                    </div>
+                </div>
+                
+                <!-- Bottom: Controls -->
+                <div class="controls-panel">
+                    <button class="btn btn-primary" id="start-btn">
+                        <i class="fa-solid fa-play"></i> Start Camera
+                    </button>
+                    <button class="btn btn-danger" id="stop-btn" disabled>
+                        <i class="fa-solid fa-stop"></i> Stop Camera
+                    </button>
+                    <button class="btn btn-secondary" id="space-btn">
+                        <i class="fa-solid fa-text-width"></i> Space
+                    </button>
+                    <button class="btn btn-warning" id="del-btn">
+                        <i class="fa-solid fa-delete-left"></i> Delete
+                    </button>
+                    <button class="btn btn-secondary" id="clear-btn">
+                        <i class="fa-solid fa-trash-can"></i> Clear Text
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
